@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Golden Crunch Plantain Chips</title>
+  <meta name="description" content="Fresh crunchy plantain chips made daily. Fast delivery within Ilorin." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --yellow: #F9C74F;
+      --yellow-deep: #F4A261;
+      --brown: #7A4E24;
+      --brown-deep: #5A3615;
+      --bg: #ffffff;
+      --text-main: #222222;
+      --muted: #666666;
+      --radius-card: 16px;
+      --shadow-soft: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: radial-gradient(circle at top left, #FFF7D6 0, #ffffff 40%, #fff 100%);
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 16px 96px; /* bottom space for sticky bar */
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0 12px;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 100px;
+      background: linear-gradient(145deg, var(--yellow), var(--yellow-deep));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--brown-deep);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      font-size: 16px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-tag {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .badge-local {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(244, 162, 97, 0.12);
+      color: var(--brown-deep);
+      font-weight: 500;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr;
+      gap: 20px;
+      padding: 8px 0 24px;
+    }
+
+    .hero-copy h1 {
+      font-size: 26px;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .hero-highlight {
+      color: var(--brown-deep);
+    }
+
+    .hero-tagline {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--brown-deep);
+      background: rgba(249, 199, 79, 0.2);
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .hero-note-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #3FC061;
+    }
+
+    .hero-media {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      overflow: hidden;
+      max-height: 260px;
+    }
+
+    .hero-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+    }
+
+    .hero-chip-tag {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      font-size: 11px;
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-card-footer {
+      padding: 10px 12px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+    }
+
+    .hero-card-footer span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(249, 199, 79, 0.25);
+      color: var(--brown-deep);
+      font-weight: 500;
+    }
+
+    .section {
+      margin-bottom: 26px;
+    }
+
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .section-caption {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .products-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: var(--radius-card);
+      padding: 12px 12px 12px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0,0,0,0.03);
+      display: grid;
+      grid-template-columns: 1.7fr 1.2fr;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .product-main {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .product-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .product-price {
+      font-size: 14px;
+      color: var(--brown-deep);
+      font-weight: 600;
+    }
+
+    .product-desc {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .product-tagline {
+      font-size: 11px;
+      color: var(--brown);
+    }
+
+    .product-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+    }
+
+    .product-thumb {
+      width: 72px;
+      height: 72px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .product-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .badge-size {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(122, 78, 36, 0.06);
+      color: var(--brown-deep);
+    }
+
+    .btn-order-card {
+      font-size: 12px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--yellow), var(--yellow-deep));
+      color: var(--brown-deep);
+      font-weight: 600;
+      box-shadow: 0 6px 14px rgba(244, 162, 97, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .btn-order-card span {
+      font-size: 14px;
+    }
+
+    .btn-order-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(244, 162, 97, 0.45);
+    }
+
+    .btn-order-card:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 10px rgba(244, 162, 97, 0.3);
+    }
+
+    .steps-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .step-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: flex-start;
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+
+    .step-number {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: rgba(249, 199, 79, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--brown-deep);
+    }
+
+    .step-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .step-text {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .note-hint {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .whatsapp-bar-space {
+      height: 72px;
+    }
+
+    .whatsapp-sticky {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      padding: 10px 14px 14px;
+      background: linear-gradient(to top, rgba(255,255,255,0.96), rgba(255,255,255,0.92));
+      box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .whatsapp-inner {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .whatsapp-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 11px 16px;
+      background: #25D366;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 10px 26px rgba(37, 211, 102, 0.55);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .whatsapp-btn small {
+      font-size: 11px;
+      font-weight: 400;
+      opacity: 0.85;
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.7);
+    }
+
+    .whatsapp-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 18px rgba(37, 211, 102, 0.55);
+    }
+
+    .wa-icon-circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #25D366;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    footer {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      padding: 14px 0 86px;
+    }
+
+    @media (min-width: 640px) {
+      .shell {
+        padding: 24px 24px 110px;
+      }
+
+      header {
+        padding-bottom: 18px;
+      }
+
+      .hero {
+        grid-template-columns: 1.1fr 1.1fr;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .hero-copy h1 {
+        font-size: 30px;
+      }
+
+      .hero-tagline {
+        font-size: 15px;
+      }
+
+      .hero-image-wrapper {
+        max-height: 300px;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .product-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .hero-copy h1 {
+        font-size: 34px;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(4, minmax(0,1fr));
+      }
+
+      .product-card {
+        grid-template-columns: 1fr;
+      }
+
+      .whatsapp-sticky {
+        left: auto;
+        right: 24px;
+        bottom: 24px;
+        width: auto;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .whatsapp-inner {
+        max-width: none;
+      }
+
+      .whatsapp-btn {
+        width: auto;
+        padding-inline: 18px 18px;
+      }
+
+      footer {
+        padding-bottom: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="shell">
+      <header>
+        <div class="brand-mark">
+          <div class="brand-icon">GC</div>
+          <div class="brand-text">
+            <div class="brand-name">Golden Crunch</div>
+            <div class="brand-tag">Plantain Chips • Ilorin</div>
+          </div>
+        </div>
+        <div class="badge-local">Same-day delivery in Ilorin</div>
+      </header>
+
+      <main>
+        <section class="hero" aria-label="Golden Crunch Plantain Chips hero section">
+          <div class="hero-copy">
+            <h1>
+              <span class="hero-highlight">Golden Crunch Plantain Chips</span><br />
+              Fresh, hot &amp; perfectly crunchy.
+            </h1>
+            <p class="hero-tagline">Fresh crunchy plantain chips made daily. Fast delivery within Ilorin.</p>
+            <div class="hero-note">
+              <span class="hero-note-dot"></span>
+              <span>Order now, enjoy your chips in minutes (within Ilorin).</span>
+            </div>
+          </div>
+
+          <div class="hero-media">
+            <article class="hero-card" aria-label="Bowl of freshly fried plantain chips">
+              <div class="hero-image-wrapper">
+                <img src="mainplantainchipsimage.jpeg" alt="Bowl of freshly fried Golden Crunch plantain chips" loading="lazy" />
+                <div class="hero-chip-tag">Real plantain chips • No watermarks</div>
+              </div>
+              <div class="hero-card-footer">
+                <span>
+                  • Freshly fried daily
+                </span>
+                <span class="pill">Best enjoyed same day</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="products-heading">
+          <div class="section-title-row">
+            <h2 id="products-heading" class="section-title">Choose your pack</h2>
+            <p class="section-caption">Perfect sizes for solo snacking or sharing.</p>
+          </div>
+
+          <div class="products-grid" role="list">
+            <article class="product-card" role="listitem">
+              <div class="product-main">
+                <div class="product-name">Small Pack</div>
+                <div class="product-price">₦500</div>
+                <p class="product-desc">Handful of crunchy, lightly salted plantain chips. Great for a quick bite.</p>
+                <p class="product-tagline">Ideal for one person.</p>
+              </div>
+              <div class="product-cta">
+                <div class="product-thumb">
+                  <img src="smallpack.jpeg" alt="Small pack of Golden Crunch Plantain Chips" loading="lazy" />
+                </div>
+                <span class="badge-size">Snack size</span>
+                <a href="https://wa.me/2348000000000?text=Hello%20I%20want%20to%20order%20a%20Small%20Pack%20of%20Golden%20Crunch%20Plantain%20Chips" target="_blank" rel="noopener noreferrer">
+                  <button class="btn-order-card" type="button">
+                    <span>&#128172;</span>
+                    <span>Order on WhatsApp</span>
+                  </button>
+                </a>
+              </div>
+            </article>
+
+            <article class="product-card" role="listitem">
+              <div class="product-main">
+                <div class="product-name">Medium Pack</div>
+                <div class="product-price">₦1000</div>
+                <p class="product-desc">More crunch for your day. Perfect for work, lectures, or a quick movie.</p>
+                <p class="product-tagline">Share with a friend.</p>
+              </div>
+              <div class="product-cta">
+                <div class="product-thumb">
+                  <img src="mediumpack.jpeg" alt="Medium pack of Golden Crunch Plantain Chips" loading="lazy" />
+                </div>
+                <span class="badge-size">Most popular</span>
+                <a href="https://wa.me/2348000000000?text=Hello%20I%20want%20to%20order%20a%20Medium%20Pack%20of%20Golden%20Crunch%20Plantain%20Chips" target="_blank" rel="noopener noreferrer">
+                  <button class="btn-order-card" type="button">
+                    <span>&#128172;</span>
+                    <span>Order on WhatsApp</span>
+                  </button>
+                </a>
+              </div>
+            </article>
+
+            <article class="product-card" role="listitem">
+              <div class="product-main">
+                <div class="product-name">Large Pack</div>
+                <div class="product-price">₦2000</div>
+                <p class="product-desc">A full bag of crunchy goodness for serious plantain lovers.</p>
+                <p class="product-tagline">Great for small groups.</p>
+              </div>
+              <div class="product-cta">
+                <div class="product-thumb">
+                  <img src="largepack.jpeg" alt="Large pack of Golden Crunch Plantain Chips" loading="lazy" />
+                </div>
+                <span class="badge-size">Family treat</span>
+                <a href="https://wa.me/2348000000000?text=Hello%20I%20want%20to%20order%20a%20Large%20Pack%20of%20Golden%20Crunch%20Plantain%20Chips" target="_blank" rel="noopener noreferrer">
+                  <button class="btn-order-card" type="button">
+                    <span>&#128172;</span>
+                    <span>Order on WhatsApp</span>
+                  </button>
+                </a>
+              </div>
+            </article>
+
+            <article class="product-card" role="listitem">
+              <div class="product-main">
+                <div class="product-name">Party Pack</div>
+                <div class="product-price">₦5000</div>
+                <p class="product-desc">Big bowl size pack for hangouts, games night, or small parties.</p>
+                <p class="product-tagline">Perfect for sharing.</p>
+              </div>
+              <div class="product-cta">
+                <div class="product-thumb">
+                  <img src="partypack.jpeg" alt="Party pack of Golden Crunch Plantain Chips" loading="lazy" />
+                </div>
+                <span class="badge-size">Party ready</span>
+                <a href="https://wa.me/2348000000000?text=Hello%20I%20want%20to%20order%20a%20Party%20Pack%20of%20Golden%20Crunch%20Plantain%20Chips" target="_blank" rel="noopener noreferrer">
+                  <button class="btn-order-card" type="button">
+                    <span>&#128172;</span>
+                    <span>Order on WhatsApp</span>
+                  </button>
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="steps-heading">
+          <div class="section-title-row">
+            <h2 id="steps-heading" class="section-title">How to order</h2>
+            <p class="section-caption">Simple 3-step process.</p>
+          </div>
+
+          <div class="steps-list">
+            <article class="step-item">
+              <div class="step-number">1</div>
+              <div>
+                <h3 class="step-title">Choose your pack</h3>
+                <p class="step-text">Pick a pack size above that matches your craving – from Small to Party Pack.</p>
+              </div>
+            </article>
+
+            <article class="step-item">
+              <div class="step-number">2</div>
+              <div>
+                <h3 class="step-title">Click order on WhatsApp</h3>
+                <p class="step-text">Tap the Order button on your preferred pack or the green WhatsApp button below.</p>
+              </div>
+            </article>
+
+            <article class="step-item">
+              <div class="step-number">3</div>
+              <div>
+                <h3 class="step-title">Confirm quantity &amp; delivery</h3>
+                <p class="step-text">Tell us how many packs you want and share your Ilorin delivery address. We confirm time &amp; total.</p>
+              </div>
+            </article>
+          </div>
+
+          <p class="note-hint">Payment details and final delivery fee (within Ilorin) are confirmed on WhatsApp.</p>
+        </section>
+
+        <footer>
+          &copy; <span id="year"></span> Golden Crunch Plantain Chips, Ilorin.
+        </footer>
+
+        <div class="whatsapp-bar-space" aria-hidden="true"></div>
+      </main>
+    </div>
+
+    <div class="whatsapp-sticky">
+      <div class="whatsapp-inner">
+        <a href="https://wa.me/2348000000000?text=Hello%20I%20want%20to%20order%20Golden%20Crunch%20Plantain%20Chips" target="_blank" rel="noopener noreferrer">
+          <button class="whatsapp-btn" type="button">
+            <div class="wa-icon-circle" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="11" fill="#25D366" />
+                <path fill="#ffffff" d="M10 7h4c0.55 0 1 0.45 1 1v8c0 0.55-0.45 1-1 1h-4c-0.55 0-1-0.45-1-1V8c0-0.55 0.45-1 1-1zm0 2v5h4V9h-4zm1 6.25h2V17h-2v-1.75z" />
+              </svg>
+            </div>
+            <div>
+              <div>Order Golden Crunch on WhatsApp</div>
+              <small>Tap to chat instantly – we respond fast.</small>
+            </div>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
