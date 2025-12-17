@@ -55,7 +55,7 @@
       width: 100%;
       max-width: 960px;
       margin: 0 auto;
-      padding: 16px 16px 96px; /* bottom space for sticky bar */
+      padding: 16px 16px 80px; /* bottom space for sticky bar */
     }
 
     header {
@@ -384,10 +384,6 @@
       margin-top: 6px;
     }
 
-    .whatsapp-bar-space {
-      height: 72px;
-    }
-
     .whatsapp-sticky {
       position: fixed;
       left: 0;
@@ -422,7 +418,7 @@
       font-size: 14px;
       font-weight: 600;
       box-shadow: 0 10px 26px rgba(37, 211, 102, 0.55);
-      transition: transform 0.12s ease, box-shadow 0.12s ease;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     }
 
     .whatsapp-btn small {
@@ -432,8 +428,9 @@
     }
 
     .whatsapp-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.7);
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 14px 34px rgba(37, 211, 102, 0.75);
+      background: linear-gradient(135deg, #22c35e, #25D366);
     }
 
     .whatsapp-btn:active {
@@ -442,28 +439,34 @@
     }
 
     .wa-icon-circle {
-      width: 22px;
-      height: 22px;
+      width: 26px;
+      height: 26px;
       border-radius: 999px;
-      background: #ffffff;
+      background: radial-gradient(circle at 30% 30%, #ffffff 0, #e9ffef 40%, #25D366 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #25D366;
-      font-size: 13px;
-      font-weight: 700;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.8), 0 4px 10px rgba(0,0,0,0.18);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .whatsapp-btn:hover .wa-icon-circle {
+      transform: scale(1.06) translateY(-1px);
+      box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.28), 0 6px 14px rgba(0,0,0,0.22);
+      background: radial-gradient(circle at 30% 30%, #ffffff 0, #f5fff9 35%, #1ebe5d 100%);
     }
 
     footer {
       font-size: 11px;
       color: var(--muted);
       text-align: center;
-      padding: 14px 0 86px;
+      padding: 14px 0 32px;
     }
 
     @media (min-width: 640px) {
       .shell {
-        padding: 24px 24px 110px;
+        padding: 24px 24px 90px;
       }
 
       header {
@@ -709,8 +712,6 @@
         <footer>
           &copy; <span id="year"></span> Golden Crunch Plantain Chips, Ilorin.
         </footer>
-
-        <div class="whatsapp-bar-space" aria-hidden="true"></div>
       </main>
     </div>
 
@@ -720,8 +721,15 @@
           <button class="whatsapp-btn" type="button">
             <div class="wa-icon-circle" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-                <circle cx="12" cy="12" r="11" fill="#25D366" />
-                <path fill="#ffffff" d="M10 7h4c0.55 0 1 0.45 1 1v8c0 0.55-0.45 1-1 1h-4c-0.55 0-1-0.45-1-1V8c0-0.55 0.45-1 1-1zm0 2v5h4V9h-4zm1 6.25h2V17h-2v-1.75z" />
+                <defs>
+                  <clipPath id="wa-clip">
+                    <circle cx="12" cy="12" r="10" />
+                  </clipPath>
+                </defs>
+                <g clip-path="url(#wa-clip)">
+                  <circle cx="12" cy="12" r="10" fill="#25D366" />
+                  <path fill="#ffffff" d="M9.9 7.2c-.3-.1-.7-.1-1 0-1 .3-1.7 1.3-1.7 2.4 0 1.4.7 2.6 2.1 3.8 1.4 1.2 3 1.9 4.4 1.9 1.1 0 2-.6 2.3-1.6.1-.3.1-.7 0-1l-.1-.3c-.1-.3-.4-.4-.7-.3l-1.3.5c-.3.1-.5 0-.7-.2l-.6-.6c-.1-.1-.2-.3-.1-.5l.3-.7c.1-.2 0-.4-.1-.6l-1-1.7c-.1-.2-.3-.3-.5-.4l-.3-.1z" />
+                </g>
               </svg>
             </div>
             <div>
